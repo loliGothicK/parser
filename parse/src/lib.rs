@@ -19,10 +19,10 @@ fn any_char(input: &str) -> Option<(char, &str)> {
 
 // 条件を渡すとパーサーを作ってくれる
 #[allow(dead_code)]
-fn sat<'a>(
+fn sat(
     pred: impl Fn(char) -> bool,
-) -> impl FnOnce(&'a str) -> Option<(char, &'a str)> {
-    move |input| -> Option<(char, &'a str)> {
+) -> impl FnOnce(&str) -> Option<(char, &str)> {
+    move |input| -> Option<(char, &str)> {
         any_char(input).and_then(|(parsed, rest)| pred(parsed).then(|| (parsed, rest)))
     }
 }
