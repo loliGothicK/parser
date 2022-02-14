@@ -63,9 +63,9 @@ fn num(input: &str) -> Option<(char, &str)> {
 // parse many digit "3333a"
 // ((many digit) "3333a") -> Some(("3333","a"))
 #[allow(dead_code)]
-fn many<'a>(
-    parser: impl Fn(&'a str) -> Option<(char, &'a str)>,
-) -> impl FnOnce(&'a str) -> Option<(String, &'a str)> {
+fn many(
+    parser: impl Fn(&str) -> Option<(char, &str)>,
+) -> impl FnOnce(&str) -> Option<(String, &str)> {
     move |input| {
         let mut result = String::new();
         result.reserve(input.len());
