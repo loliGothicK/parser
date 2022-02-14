@@ -29,10 +29,7 @@ fn sat<'a>(
 
 #[allow(dead_code)]
 fn is_num(input: char) -> bool {
-    matches!(
-        input,
-        '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9'
-    )
+    matches!(input, '0'..='9')
 }
 
 #[allow(dead_code)]
